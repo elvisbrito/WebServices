@@ -1,319 +1,383 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "version": "1.0",
-    "title": "TOTVS API - PROTHEUS",
-    "description": "TOTVS API - PROTHEUS"
-  },
-  "basePath": "/fwmodel",
-  "paths": {
-    "/AGRA045": {
-      "get": {
-        "summary": "Locais de Estoque",
-        "description": "Retorna Locais de Estoque",
-        "tags": [
-          "AGRA045"
-        ],
-        "parameters": [
-          {
-            "name": "COUNT",
-            "in": "query",
-            "description": "Quantidade de registro que devem ser retornados",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "name": "STARTINDEX",
-            "in": "query",
-            "description": "Indica a partir que qual index deverá ser retornado",
-            "required": false,
-            "type": "integer"
-          },
-          {
-            "name": "FILTER",
-            "in": "query",
-            "description": "Filtro que será aplicado no método SetFilter()",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "FIELDDETAIL",
-            "in": "query",
-            "description": "Habilita mostrar mais informações nos campos do modelo",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "FIELDVIRTUAL",
-            "in": "query",
-            "description": "Habilita o retorno de campos virtuais",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "FIELDEMPTY",
-            "in": "query",
-            "description": "Habilita o retorno de campos vazios ou nulos",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/AGRA045"
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Locais de Estoque",
-        "description": "Cria Locais de Estoque",
-        "tags": [
-          "AGRA045"
-        ],
-        "parameters": [
-          {
-            "name": "AGRA045",
-            "in": "body",
-            "description": "Modelo MVC",
-            "schema": {
-              "$ref": "#/definitions/AGRA045"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/AGRA045"
-            }
-          }
-        }
-      }
-    },
-    "/AGRA045/{pk}": {
-      "get": {
-        "summary": "Locais de Estoque",
-        "description": "Retorna Locais de Estoque",
-        "tags": [
-          "AGRA045"
-        ],
-        "parameters": [
-          {
-            "name": "pk",
-            "in": "path",
-            "description": "Chaves primarias",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/AGRA045"
-            }
-          }
-        }
-      },
-      "put": {
-        "summary": "Locais de Estoque",
-        "description": "Cria Locais de Estoque",
-        "tags": [
-          "AGRA045"
-        ],
-        "parameters": [
-          {
-            "name": "pk",
-            "in": "path",
-            "description": "Chaves primarias",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "AGRA045",
-            "in": "body",
-            "description": "Modelo MVC",
-            "schema": {
-              "$ref": "#/definitions/AGRA045"
-            },
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/AGRA045"
-            }
-          }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "AGRA045": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "operation": {
-          "type": "integer"
-        },
-        "models": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "modeltype": {
-                "type": "string"
-              },
-              "fields": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "order": {
-                      "type": "integer"
-                    },
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "examples": {
-    "AGRA045": {
-      "id": "AGRA045",
-      "operation": 3,
-      "models": [
-        {
-          "id": "NNRMASTER",
-          "modeltype": "FIELDS",
-          "fields": [
-            {
-              "id": "NNR_FILIAL",
-              "order": 1,
-              "len": "8,0",
-              "datatype": "C",
-              "info": "Filial",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_CODIGO",
-              "order": 2,
-              "len": "2,0",
-              "datatype": "C",
-              "info": "Codigo",
-              "obrigat": 1
-            },
-            {
-              "id": "NNR_DESCRI",
-              "order": 3,
-              "len": "20,0",
-              "datatype": "C",
-              "info": "Descricao",
-              "obrigat": 1
-            },
-            {
-              "id": "NNR_CODCLI",
-              "order": 4,
-              "len": "6,0",
-              "datatype": "C",
-              "info": "Cod. Cliente",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_LOJCLI",
-              "order": 5,
-              "len": "2,0",
-              "datatype": "C",
-              "info": "Loja Cliente",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_TIPO",
-              "order": 6,
-              "len": "1,0",
-              "datatype": "C",
-              "info": "Tipo Armazém",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_CTRAB",
-              "order": 7,
-              "len": "6,0",
-              "datatype": "C",
-              "info": "Centro Trab.",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_INTP",
-              "order": 8,
-              "len": "1,0",
-              "datatype": "C",
-              "info": "Int. PIMS",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_MRP",
-              "order": 9,
-              "len": "1,0",
-              "datatype": "C",
-              "info": "Entra MRP",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_ANP45",
-              "order": 10,
-              "len": "1,0",
-              "datatype": "L",
-              "info": "ANP45",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_ARMALT",
-              "order": 11,
-              "len": "1,0",
-              "datatype": "C",
-              "info": "Ver Sld Alt",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_VDADMS",
-              "order": 12,
-              "len": "1,0",
-              "datatype": "C",
-              "info": "Armazem Vda?",
-              "obrigat": null
-            },
-            {
-              "id": "NNR_AMZUNI",
-              "order": 13,
-              "len": "1,0",
-              "datatype": "C",
-              "info": "Armz. Unitiz",
-              "obrigat": null
-            }
-          ]
-        }
-      ]
-    }
-  }
+	"openapi": "3.0.1",
+	"servers": [
+		{
+			"description": "API para Cadastro de Calendário Contábil - Produtos TOTVS",
+			"url": "{{host}}/api/ctb/v1",
+			"variables": {
+				"serverUrl": {
+					"default": "localhost"
+				},
+				"serverHttpPort": {
+					"default": "8080"
+				}
+			}
+		}
+	],
+	"info": {
+		"description": "API para Cadastro de Calendário Contábil - Produtos TOTVS",
+		"version": "1.000",
+		"title": "Calendário Contábil",
+		"contact": {
+			"name": "T-Talk",
+			"url": "https://api.totvs.com.br",
+			"email": "comiteintegracao@totvs.com.br"
+		},
+		"x-totvs": {
+			"messageDocumentation": {
+				"name": "Calendário Contábil",
+				"description": "Cadastro de Calendário Contábil",
+				"segment": "Serviços"
+			},
+			"productInformation": [
+				{
+					"product": "Protheus",
+					"contact": "squad.control@totvs.com.br",
+					"description": "Cadastro de Calendário Contábil",
+					"adapter": "CTBI010O.prw"
+				}
+			]
+		}
+	},
+	"paths": {
+		"/AccountingCalendar": {
+			"get": {
+				"tags": [
+					"AccountingCalendar"
+				],
+				"summary": "Retorna Cadastro do Calendário Contábil",
+				"x-totvs": {
+					"productInformation": [
+						{
+							"product": "Protheus",
+							"available": true,
+							"note": "Este verbo está disponível com os parâmetros Authorization, Order, Page, PageSize e Fields",
+							"minimalVersion": "12.1.21"
+						}
+					]
+				},
+				"description": "Retorna Cadastro do Calendário Contábil",
+				"operationId": "getAccountingCalendar",
+				"parameters": [
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Authorization"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Order"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Page"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/PageSize"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Fields"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Operaçãoo realizada com sucesso!",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/AccountingCalendar_1_001.json#/definitions/PagedItems"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "erro no momento da requisição!",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Nenhum Registro encontrado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": [
+					"AccountingCalendar"
+				],
+				"summary": "Incluir um Calendário Contábil",
+				"description": "Incluir um Calendário Contábil conforme dados enviados na requisição.",
+				"operationId": "postAccountingCalendar",
+				"x-totvs": {
+					"productInformation": [
+						{
+							"product": "Protheus",
+							"available": true,
+							"note": "Este verbo esta disponivel com os parametros Authorization e Fields",
+							"minimalVersion": "12.1.21"
+						}
+					]
+				},
+				"parameters": [
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Authorization"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Fields"
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/AccountingCalendar_1_001.json#/definitions/BusinessContentType"
+							}
+						}
+					},
+					"description": "Calendário Contábil a ser incluido"
+				},
+				"responses": {
+					"200": {
+						"description": "Operação realizada com sucesso",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/AccountingCalendar_1_001.json#/definitions/PagedItems"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "erro no momento da Inclusão",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/AccountingCalendar/{InternalId}": {
+			"get": {
+				"tags": [
+					"InternalId"
+				],
+				"summary": "Retorna um Calendário Contábil específico de acordo com a chave de pesquisa",
+				"description": "Retorna a Calendário Contábil de acordo com o ID de pesquisa",
+				"operationId": "getInternalId",
+				"x-totvs": {
+					"productInformation": [
+						{
+							"product": "Protheus",
+							"available": true,
+							"note": "o InternalId é composto por filial + Código do Calendário + Ano de Exercicío + Periodo",
+							"minimalVersion": "12.1.21"
+						}
+					]
+				},
+				"parameters": [
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Authorization"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Order"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Page"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/PageSize"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Fields"
+					},
+					{
+						"$ref": "#/components/parameters/InternalId"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Operação realizada com sucesso",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/AccountingCalendar_1_001.json#/definitions/BusinessContentType"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Calendário Contábil não localizado na base",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					}
+				}
+			},
+			"put": {
+				"tags": [
+					"InternalId"
+				],
+				"summary": "Altera um Calendário Contábil",
+				"description": "Atualiza o Calendário Contábil conforme dados enviados na requisição",
+				"operationId": "putInternalId",
+				"x-totvs": {
+					"productInformation": [
+						{
+							"product": "Protheus",
+							"available": true,
+							"note": "Este verbo esta disponivel com os parametros Authorization, InternalId e Fields",
+							"minimalVersion": "12.1.21"
+						}
+					]
+				},
+				"parameters": [
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Authorization"
+					},
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Fields"
+					},
+					{
+						"$ref": "#/components/parameters/InternalId"
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/AccountingCalendar_1_001.json#/definitions/BusinessContentType"
+							}
+						}
+					},
+					"description": "Calendário a ser alterado"
+				},
+				"responses": {
+					"200": {
+						"description": "Operação  realizada com sucesso",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/AccountingCalendar_1_001.json#/definitions/BusinessContentType"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "erro no momento da Alteração",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Calendário Contábil não localizado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": [
+					"InternalId"
+				],
+				"summary": "Exclui um Calendário Contábil",
+				"description": "Exclui um Calendário Contábil conforme dados enviados na requisição.",
+				"operationId": "deleteInternalId",
+				"x-totvs": {
+					"productInformation": [
+						{
+							"product": "Protheus",
+							"available": true,
+							"note": "Este verbo esta disponível com os parametros Authorization e Fields",
+							"minimalVersion": "12.1.21"
+						}
+					]
+				},
+				"parameters": [
+					{
+						"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/parameters/Authorization"
+					},
+					{
+						"$ref": "#/components/parameters/InternalId"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Operação realizada com sucesso",
+						"content": {
+							"application/json": {}
+						}
+					},
+					"400": {
+						"description": "erro no momento da exclusão",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Calendário Contábil não localizado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/apis/types/totvsApiTypesBase.json#/definitions/ErrorModel"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"parameters": {
+			"InternalId": {
+				"name": "InternalId",
+				"in": "path",
+				"description": "Identificador único do Calendário Contábil",
+				"required": true,
+				"example": "D MG 01 219201901",
+				"schema": {
+					"type": "string"
+				},
+				"x-totvs": {
+					"productInformation": [
+						{
+							"product": "Protheus",
+							"available": true,
+							"note": "Informar os campos Filial (CTG.CTG_FILIAL), código do calendário contábil (CTG.CTG_CALEND), Ano de exercício do calendário (CTG.CTG_EXERC) e o Periodo (CTG.CTG_PERIOD)",
+							"minimalVersion": "12.1.21"
+						}
+					]
+				}
+			}
+		},
+		"schemas": {}
+	}
 }
