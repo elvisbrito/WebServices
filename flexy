@@ -1,0 +1,102 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: API de E-commerce Flexy
+  description: Documentação da API de e-commerce Flexy para integração de lojas online
+basePath: /api/v1
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /produtos:
+    get:
+      summary: Obter todos os produtos
+      description: Retorna todos os produtos disponíveis na loja online
+      responses:
+        200:
+          description: Sucesso
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Produto'
+    post:
+      summary: Criar um novo produto
+      description: Cria um novo produto na loja online
+      parameters:
+        - name: produto
+          in: body
+          description: Dados do produto a ser criado
+          required: true
+          schema:
+            $ref: '#/definitions/Produto'
+      responses:
+        201:
+          description: Produto criado com sucesso
+  /produtos/{id}:
+    get:
+      summary: Obter um produto por ID
+      description: Retorna as informações de um produto específico com base no ID fornecido
+      parameters:
+        - name: id
+          in: path
+          description: ID do produto a ser obtido
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Sucesso
+          schema:
+            $ref: '#/definitions/Produto'
+        404:
+          description: Produto não encontrado
+    put:
+      summary: Atualizar um produto
+      description: Atualiza as informações de um produto específico com base no ID fornecido
+      parameters:
+        - name: id
+          in: path
+          description: ID do produto a ser atualizado
+          required: true
+          type: integer
+        - name: produto
+          in: body
+          description: Dados atualizados do produto
+          required: true
+          schema:
+            $ref: '#/definitions/Produto'
+      responses:
+        200:
+          description: Produto atualizado com sucesso
+        404:
+          description: Produto não encontrado
+    delete:
+      summary: Excluir um produto
+      description: Exclui um produto específico com base no ID fornecido
+      parameters:
+        - name: id
+          in: path
+          description: ID do produto a ser excluído
+          required: true
+          type: integer
+      responses:
+        204:
+          description: Produto excluído com sucesso
+        404:
+          description: Produto não encontrado
+definitions:
+  Produto:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID do produto
+      nome:
+        type: string
+        description: Nome do produto
+      preco:
+        type: number
+        description: Preço do produto
+      descricao:
+        type: string
+        description: Descrição do produto
